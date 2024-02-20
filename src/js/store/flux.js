@@ -1,11 +1,15 @@
-const getState = ({ getStore, setStore }) => {
+const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			//Your data structures, A.K.A Entities
+			contacts: []
 		},
 		actions: {
-			//(Arrow) Functions that update the Store
-			// Remember to use the scope: scope.state.store & scope.setState()
+			getAgenda: () => {
+				fetch("https://playground.4geeks.com/apis/fake/contact/agenda/my_super_agenda")
+					.then(response => response.json())
+					.then(data => setStore({ contacts: data }))
+					.catch(error => console.log(error));
+			}
 		}
 	};
 };
