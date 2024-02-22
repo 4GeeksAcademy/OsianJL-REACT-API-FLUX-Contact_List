@@ -12,6 +12,9 @@ export const Contacts = () => {
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
+		actions.createContact();
+	}, []);
+	useEffect(() => {
 		actions.getAgenda();
 	}, []);
 	console.log(store.contacts);
@@ -30,7 +33,11 @@ export const Contacts = () => {
 						<ContactCard />
 						<ContactCard /> */}
 						{store.contacts.map((item, index) => (
-							<ContactCard key={item.id} onDelete={() => setState({ showModal: true })} />
+							<ContactCard
+								infoContact={item}
+								key={item.id}
+								onDelete={() => setState({ showModal: true })}
+							/>
 						))}
 					</ul>
 				</div>

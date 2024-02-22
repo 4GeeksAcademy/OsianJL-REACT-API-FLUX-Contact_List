@@ -1,7 +1,19 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 
+
 export const AddContact = () => {
+
+
+const [name, setName] = useState("")
+const [email, setEmail] = useState("")
+const [phone, setPhone] = useState("")
+const [address, setAddress] = useState("")
+
+
+
+
+
 	return (
 		<div className="container">
 			<div>
@@ -9,7 +21,7 @@ export const AddContact = () => {
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
-						<input type="text" className="form-control" placeholder="Full Name" />
+						<input type="text" className="form-control" placeholder="Full Name" onChange={}/>
 					</div>
 					<div className="form-group">
 						<label>Email</label>
